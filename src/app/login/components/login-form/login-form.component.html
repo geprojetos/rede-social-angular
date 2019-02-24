@@ -1,3 +1,66 @@
-<p>
-  login-form works!
-</p>
+<section class="bg-white p-2 rounded">
+  <header class="jumbotron text-center bg-primary text-white p-2">
+    <h1>Bem-Vindo</h1>
+    <p>Venha fazer parte da nossa rede social</p>
+  </header>
+  
+  <form>
+    <fieldset>
+      <div class="form-group">
+        <label for="userName">Login:</label>
+  
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <i class="fa fa-user input-group-text bg-primary text-white" aria-hidden="true"></i>
+          </div>
+  
+          <input 
+            type="text" 
+            class="form-control" 
+            id="userName" 
+            aria-describedby="userNameHelp" 
+            placeholder="Digite o seu login aqui">
+        </div>
+  
+        <small 
+          id="userNameHelp" 
+          class="form-text alert alert-danger form-text mt-0">
+            Login obrigatório
+        </small>
+      </div>
+  
+      <div class="form-group">
+        <label for="password">Senha:</label>
+  
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <i class="fa fa-unlock-alt input-group-text bg-primary text-white" aria-hidden="true"></i>
+          </div>
+  
+          <input 
+            type="password" 
+            class="form-control" 
+            id="password" 
+            aria-describedby="passwordHelp" 
+            placeholder="Digite a sua senha aqui">
+        </div>
+  
+        <small 
+          id="passwordHelp" 
+          class="form-text alert alert-danger form-text mt-0">
+            Senha obrigatória
+        </small>
+      </div>
+    </fieldset>
+  
+    <fieldset>
+      <button 
+        type="submit" 
+        class="btn btn-primary btn-block">
+        Entrar
+      </button>
+  
+      <a href="" class="btn btn-block btn-info">Faça seu cadastro</a>
+    </fieldset>
+  </form>
+</section>

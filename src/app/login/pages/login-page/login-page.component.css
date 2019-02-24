@@ -1,0 +1,17 @@
+.login-page-wrapper {
+    bottom: 0;
+    left: 0;
+    overflow: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.login-page-content {
+    left: 50%;
+    max-width: 350px;
+    position: relative;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+}
