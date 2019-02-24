@@ -4,7 +4,9 @@
     <p>Venha fazer parte da nossa rede social</p>
   </header>
   
-  <form>
+  <form 
+    [formGroup]="loginForm"
+    (submit)="login($event)">
     <fieldset>
       <div class="form-group">
         <label for="userName">Login:</label>
@@ -19,7 +21,8 @@
             class="form-control" 
             id="userName" 
             aria-describedby="userNameHelp" 
-            placeholder="Digite o seu login aqui">
+            placeholder="Digite o seu login aqui"
+            formControlName="userName">
         </div>
   
         <small 
@@ -42,7 +45,8 @@
             class="form-control" 
             id="password" 
             aria-describedby="passwordHelp" 
-            placeholder="Digite a sua senha aqui">
+            placeholder="Digite a sua senha aqui"
+            formControlName="password">
         </div>
   
         <small 
