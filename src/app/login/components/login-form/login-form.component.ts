@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+
 import { LoginService } from '../../services/login-service';
+import { loginUser } from '../../interfaces/login-user';
 
 @Component({
   selector: 'app-login-form',
@@ -10,6 +12,7 @@ import { LoginService } from '../../services/login-service';
 export class LoginFormComponent implements OnInit {
 
   loginForm: FormGroup;
+  loginErro: string ='';
 
   constructor(
     private _fb: FormBuilder,
@@ -20,8 +23,14 @@ export class LoginFormComponent implements OnInit {
 
     this.loginForm = this._fb.group({
 
-      userName: ['username'],
-      password: ['123']
+      userName: [
+        '',
+        Validators.required
+      ],
+      password: [
+        '',
+        Validators.required
+      ]
     })
   }
 
@@ -29,14 +38,22 @@ export class LoginFormComponent implements OnInit {
 
     e.preventDefault();
 
-    console.log('Login');
+    const user = this.loginForm.getRawValue() as loginUser;
+
+    console.log(user);
+    
     this._loginServive
-      .login('flavio', 123)
-      .subscribe((res) => {
-        console.log(res);
-        
+      .login(user.userName, user.password)
+      .subscribe(() => {
+
+        console.log('Redirecionar para timeline');
         console.log('Logado com sucesso');
-      }, erro => console.log(erro))
+        this.loginErro = '';
+      }, erro => {
+
+        console.log(erro);
+        this.loginErro = 'Login ou senha inválidos!'
+      })
   }
 
 }

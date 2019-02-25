@@ -4,9 +4,14 @@
     <p>Venha fazer parte da nossa rede social</p>
   </header>
   
+  <p class="alert alert-danger" *ngIf="loginErro">
+    {{loginErro}}
+  </p>
+
   <form 
     [formGroup]="loginForm"
-    (submit)="login($event)">
+    (submit)="login($event)"
+    #form="ngForm">
     <fieldset>
       <div class="form-group">
         <label for="userName">Login:</label>
@@ -27,7 +32,8 @@
   
         <small 
           id="userNameHelp" 
-          class="form-text alert alert-danger form-text mt-0">
+          class="form-text alert alert-danger form-text mt-0"
+          *ngIf="loginForm.get('userName').errors?.required && (form.submitted || loginForm.get('userName').touched)">
             Login obrigatório
         </small>
       </div>
@@ -51,7 +57,8 @@
   
         <small 
           id="passwordHelp" 
-          class="form-text alert alert-danger form-text mt-0">
+          class="form-text alert alert-danger form-text mt-0"
+          *ngIf="loginForm.get('password').errors?.required && (form.submitted || loginForm.get('password').touched)">
             Senha obrigatória
         </small>
       </div>

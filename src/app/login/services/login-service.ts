@@ -14,7 +14,7 @@ export class LoginService {
         private _http: HttpClient
     ) { }
 
-    login(userName: string, password: number): Observable<loginInterface> {
+    login(userName: string, password: string): Observable<loginInterface> {
 
         return this._http
             .post<loginInterface>(api + '/user/login', { userName, password })
