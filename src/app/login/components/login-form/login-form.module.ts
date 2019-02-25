@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 
 import { LoginFormComponent } from './login-form.component';
 import { LoginService } from '../../services/login-service';
+import { LoginGuard } from '../../guards/login-guard';
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import { LoginService } from '../../services/login-service';
     LoginFormComponent
   ],
   providers: [
-    LoginService
+    LoginService,
+    LoginGuard
   ]
 })
 export class LoginFormModule { }

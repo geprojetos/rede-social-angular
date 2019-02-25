@@ -11,13 +11,13 @@ import { loginInterface } from 'src/app/login/interfaces/login-interface';
 export class UserService {
 
   userSubject = new BehaviorSubject<loginInterface>(null);
-  user: loginInterface;
+  userName: string;
 
   constructor(
     private _tokenService: TokenService
   ) { 
 
-    // talves verificar e decodificar token aqui
+    this._tokenService.hasToken() && this.userDecodifyToken()
   }
 
   userSetToken(token: string): void {
@@ -31,15 +31,24 @@ export class UserService {
     const token = this._tokenService.getToken();
     const infoToken = jwt(token) as loginInterface;
 
-    this.user = infoToken;
+    this.userName = infoToken.name;
     this.userSubject.next(infoToken);
     console.log(infoToken);
-    
   };
 
   userLogout() { 
 
     this._tokenService.removeToken();
     this.userSubject.next(null);
+  };
+
+  userGet(): string {
+    
+    return this.userName;
+  };
+
+  isLogged() {
+
+    return this._tokenService.hasToken();
   };
 }

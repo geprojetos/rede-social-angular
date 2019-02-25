@@ -42,8 +42,6 @@ export class LoginFormComponent implements OnInit {
 
     const user = this.loginForm.getRawValue() as loginUser;
 
-    console.log(user);
-    
     this._loginServive
       .login(user.userName, user.password)
       .subscribe(() => {
