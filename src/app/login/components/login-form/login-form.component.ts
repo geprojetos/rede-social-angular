@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { LoginService } from '../../services/login-service';
 import { loginUser } from '../../interfaces/login-user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-form',
@@ -16,7 +17,8 @@ export class LoginFormComponent implements OnInit {
 
   constructor(
     private _fb: FormBuilder,
-    private _loginServive: LoginService
+    private _loginServive: LoginService,
+    private _router: Router
   ) { }
 
   ngOnInit() {
@@ -46,8 +48,7 @@ export class LoginFormComponent implements OnInit {
       .login(user.userName, user.password)
       .subscribe(() => {
 
-        console.log('Redirecionar para timeline');
-        console.log('Logado com sucesso');
+        this._router.navigate([user.userName, 'timeline']);
         this.loginErro = '';
       }, erro => {
 
