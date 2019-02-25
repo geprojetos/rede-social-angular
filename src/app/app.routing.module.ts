@@ -6,6 +6,10 @@ const appRoutes: Routes = [
     {
         path: '',
         loadChildren: './login/login.module#LoginModule'
+    },
+    {
+        path: ':userName/timeline',
+        loadChildren: './timeline/timeline.module#TimelineModule'
     }
 ];
 
