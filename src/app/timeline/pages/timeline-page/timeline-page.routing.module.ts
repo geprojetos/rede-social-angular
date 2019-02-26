@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { TimelinePageComponent } from './pages/timeline-page/timeline-page.component';
+import { TimelinePageComponent } from './timeline-page.component';
 
 const timelineRoutes: Routes = [
 
@@ -15,4 +15,4 @@ const timelineRoutes: Routes = [
     imports: [ RouterModule.forChild(timelineRoutes) ],
     exports: [ RouterModule ],
 })
-export class TimelineRoutingModule { }
+export class TimelinePageRoutingModule { }

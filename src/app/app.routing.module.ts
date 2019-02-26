@@ -9,7 +9,11 @@ const appRoutes: Routes = [
     },
     {
         path: ':userName/timeline',
-        loadChildren: './timeline/timeline.module#TimelineModule'
+        loadChildren: './timeline/pages/timeline-page/timeline-page.module#TimelinePageModule'
+    },
+    {
+        path: ':userName/timeline/config',
+        loadChildren: './timeline/pages/timeline-user-page/timeline-user-page.module#TimelineUserPageModule'
     }
 ];
 
