@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import { LoginPageComponent } from './login-page.component';
 import { LoginFormModule } from '../../components/login-form/login-form.module';
+import { LoginPageRoutingModule } from './login-page.routing.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    LoginFormModule
+    LoginFormModule,
+    LoginPageRoutingModule
   ],
   declarations: [
     LoginPageComponent
