@@ -1,5 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
-.container {
+.page-bkg {
+    background: #fff;
+    height: 100%;
+    left: 50%;
     max-width: 600px;
+    padding: 8px;
+    padding: .5em;
+    position: absolute;
+    top: 0;
+    transform: translate(-50%,0);
     width: 100%;
 }
