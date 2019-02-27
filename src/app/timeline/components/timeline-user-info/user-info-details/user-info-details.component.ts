@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from 'src/app/core/user/service/user.service';
-import { Observable } from 'rxjs';
-import { loginInterface } from 'src/app/login/interfaces/login-interface';
 import { Location } from '@angular/common';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+
+import { loginInterface } from 'src/app/login/interfaces/login-interface';
+import { UserService } from 'src/app/core/user/service/user.service';
 
 @Component({
   selector: 'app-user-info-details',
@@ -16,7 +18,8 @@ export class UserInfoDetailsComponent implements OnInit {
 
   constructor(
     private _userService: UserService,
-    private _location: Location
+    private _location: Location,
+    private _router: Router
   ) { }
 
   ngOnInit() {
@@ -32,6 +35,15 @@ export class UserInfoDetailsComponent implements OnInit {
 
     e.preventDefault();
     this._location.back();
+  };
+
+  logout(e: Event) {
+
+    e.preventDefault();
+
+    console.log('logout');
+    this._userService.userLogout();
+    this._router.navigate(['']);
   }
 
 }
