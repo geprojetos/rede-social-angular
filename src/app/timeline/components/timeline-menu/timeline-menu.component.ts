@@ -17,7 +17,7 @@ export class TimelineMenuComponent implements OnInit {
 
   ngOnInit() {
     
-    this.userName = this._userService.userGet();
+    this.userName = this._userService.userNameGet();
   }
 
 }

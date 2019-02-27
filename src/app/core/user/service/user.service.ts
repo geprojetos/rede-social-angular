@@ -42,7 +42,11 @@ export class UserService {
     this.userSubject.next(null);
   };
 
-  userGet(): string {
+  userObservable() {
+    return this.userSubject.asObservable();
+  }
+
+  userNameGet(): string {
     
     return this.userName;
   };

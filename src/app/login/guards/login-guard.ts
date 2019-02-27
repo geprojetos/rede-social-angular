@@ -22,7 +22,7 @@ export class LoginGuard implements CanActivate {
         
         if(this._userService.isLogged()) {
 
-            this._router.navigate([this._userService.userGet(), 'timeline']);
+            this._router.navigate([this._userService.userNameGet(), 'timeline']);
             return false;
         }
         
