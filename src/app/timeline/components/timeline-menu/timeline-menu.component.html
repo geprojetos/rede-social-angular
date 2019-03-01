@@ -1,5 +1,7 @@
 <nav class="position-fixed fixed-bottom col-12 bg-info">
-  <ul class="nav d-flex justify-content-between align-items-center">
+  <ul 
+    class="nav d-flex justify-content-between align-items-center"
+    *ngIf="logged">
     <li class="nav-item">
       <a 
         class="pt-2 pb-2 d-block"
@@ -20,4 +22,16 @@
       </a>
     </li>
   </ul>
+
+  <ul 
+    class="list-unstyled m-0 text-center"
+    *ngIf="!logged">
+    <li class="nav-item">
+      <a 
+        class="btn btn-primary m-2 text-white"
+        [routerLink]="['']">
+        Faça seu login
+      </a>
+    </li>
+  </ul>  
 </nav>

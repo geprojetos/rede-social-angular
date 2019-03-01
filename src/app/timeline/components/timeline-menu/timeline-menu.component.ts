@@ -10,6 +10,7 @@ import { UserService } from 'src/app/core/user/service/user.service';
 export class TimelineMenuComponent implements OnInit {
 
   userName: string;
+  logged: boolean = false;
 
   constructor(
     private _userService: UserService
@@ -18,6 +19,14 @@ export class TimelineMenuComponent implements OnInit {
   ngOnInit() {
     
     this.userName = this._userService.userNameGet();
+
+    if(this._userService.isLogged()) {
+      console.log('logado');
+      this.logged = true;
+    } else {
+      console.log('deslogado');
+      this.logged = false;
+    }
   }
 
 }
