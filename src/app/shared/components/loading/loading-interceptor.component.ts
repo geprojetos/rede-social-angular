@@ -13,12 +13,12 @@ export class LoadingInterceptorComponent implements OnInit {
   loading$: Observable<string>;
 
   constructor(
-    private _loadingInterceptor: LoadingInterceptorService
+    private _loadingService: LoadingInterceptorService
   ) { }
 
   ngOnInit() {
 
-    this.loading$ = this._loadingInterceptor
+    this.loading$ = this._loadingService
       .getLoading()
       .pipe(map(loading => {
 

@@ -1,0 +1,20 @@
+.loading {
+    animation: load 1.2s ease-in-out;
+    background: green;
+    background-image: linear-gradient(90deg, #84f784, #32a032, #1f901f, #0e750e, green);
+    display: block;
+    height: 10px;    
+    margin: 0;
+    position: absolute;
+    top: 0;
+    z-index: 10;
+}
+
+.stopped {
+    display: none;
+}
+
+@keyframes load {
+    0% { width: 0; }
+    100% { width: 100%; }
+}

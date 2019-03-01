@@ -3,9 +3,7 @@ import { Subject } from 'rxjs';
 import { LoadingType } from '../loading-type';
 import { startWith } from 'rxjs/operators';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class LoadingInterceptorService {
 
   loadingSubject = new Subject<LoadingType>();
