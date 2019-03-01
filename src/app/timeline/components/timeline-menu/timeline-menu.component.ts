@@ -21,10 +21,8 @@ export class TimelineMenuComponent implements OnInit {
     this.userName = this._userService.userNameGet();
 
     if(this._userService.isLogged()) {
-      console.log('logado');
       this.logged = true;
     } else {
-      console.log('deslogado');
       this.logged = false;
     }
   }

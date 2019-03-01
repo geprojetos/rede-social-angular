@@ -20,12 +20,7 @@ export class LoadingInterceptorComponent implements OnInit {
 
     this.loading$ = this._loadingService
       .getLoading()
-      .pipe(map(loading => {
-
-        console.log('chamou o loading interceptor');
-        
-        return loading.valueOf()}
-      ))
+      .pipe(map(loading => loading.valueOf()))
   }
 
 }
