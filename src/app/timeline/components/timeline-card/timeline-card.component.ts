@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
+import { TimelineCardInterface } from '../../interfaces/timeline-card/timeline-card-interface';
+
 
 @Component({
   selector: 'app-timeline-card',
@@ -7,9 +11,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TimelineCardComponent implements OnInit {
 
-  constructor() { }
+  cards: TimelineCardInterface[] = [];
+
+  constructor(
+    private _activatedRoute: ActivatedRoute
+  ) { }
 
   ngOnInit() {
+
+    this._activatedRoute.params.subscribe(params => {
+
+      this.cards = this._activatedRoute.snapshot.data['cards'];
+      console.log(this.cards);
+    });
+
   }
 
 }
