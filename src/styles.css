@@ -1,13 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+.page-bkg,
+.page-width {
+    max-width: 600px;
+    width: 100%;
+    left: 50%;
+    transform: translate(-50%,0);
+}
+
 .page-bkg {
     background: #fff;
-    height: 100%;
-    left: 50%;
-    max-width: 600px;
+    min-height: 100%;
     padding: 8px;
     padding: .5em;
     position: absolute;
     top: 0;
-    transform: translate(-50%,0);
-    width: 100%;
 }

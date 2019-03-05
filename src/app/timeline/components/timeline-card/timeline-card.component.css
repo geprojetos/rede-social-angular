@@ -1,0 +1,4 @@
+.timeline-card:last-child {
+    display: block;
+    padding-bottom: 40px;
+}

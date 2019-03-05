@@ -1,1 +1,7 @@
-<app-card-template></app-card-template>
+    <app-card-template
+        class="timeline-card"
+        *ngFor="let card of cards"
+        [url]="card.url"
+        [description]="card.description"
+    >
+    </app-card-template>
