@@ -18,6 +18,6 @@ export class TimelineCardResolve implements Resolve<TimelineCardInterface> {
 
         const userName = route.params['userName'];
                 
-        return this._cardService.listCards(userName)
+        return this._cardService.listaCardsPagination(userName, 1)
     }
 }
