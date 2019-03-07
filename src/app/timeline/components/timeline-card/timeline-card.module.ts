@@ -6,12 +6,14 @@ import { TimelineCardComponent } from './timeline-card.component';
 import { CardTemplateModule } from './card-template/card-template.module';
 import { TimelineCardService } from '../../services/timeline-card/timeline-card.service';
 import { TimelineCardResolve } from '../../resolvers/timeline-card/timeline-card.resolver';
+import { ButtonLoadCardModule } from './button-load-card/button-load-card.module';
 
 @NgModule({
   imports: [
     CommonModule,
     HttpClientModule,
-    CardTemplateModule
+    CardTemplateModule,
+    ButtonLoadCardModule
   ],
   declarations: [
     TimelineCardComponent

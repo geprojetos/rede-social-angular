@@ -19,12 +19,7 @@ export class TimelineCardComponent implements OnInit {
 
   ngOnInit() {
 
-    this._activatedRoute.params.subscribe(() => {
-      
-      this.cards = this._activatedRoute.snapshot.data['cards'];
-      console.log(this.cards);
-    });
-
-  }
+    this._activatedRoute.params.subscribe(() => this.cards = this._activatedRoute.snapshot.data['cards']);
+  };
 
 }

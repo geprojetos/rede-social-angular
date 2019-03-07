@@ -33,7 +33,6 @@ export class UserService {
 
     this.userName = infoToken.name;
     this.userSubject.next(infoToken);
-    console.log(infoToken);
   };
 
   userLogout() { 
