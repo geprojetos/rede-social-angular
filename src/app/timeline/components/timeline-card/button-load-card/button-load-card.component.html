@@ -1,3 +1,7 @@
 <div class="text-center pb-5">
-  <button class="btn btn-info">Carregar mais</button>
+  <button 
+    class="btn btn-info"
+    (click)="loadMore($event)"
+    *ngIf="visible"
+  >Carregar mais</button>
 </div>

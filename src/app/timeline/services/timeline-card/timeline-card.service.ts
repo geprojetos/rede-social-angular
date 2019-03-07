@@ -14,18 +14,18 @@ export class TimelineCardService {
     private _http: HttpClient
   ) { }
 
-  listCards(userName: string): Observable<TimelineCardInterface> {
+  listCards(userName: string): Observable<TimelineCardInterface[]> {
 
     return this._http
-      .get<TimelineCardInterface>(`${ api }/${ userName }/photos`)
+      .get<TimelineCardInterface[]>(`${ api }/${ userName }/photos`)
   };
 
-  listaCardsPagination(userName: string, page: number): Observable<TimelineCardInterface> {
+  listaCardsPagination(userName: string, page: number): Observable<TimelineCardInterface[]> {
 
     const pageParam = new HttpParams().append('page', page.toString())
 
     return this._http
-      .get<TimelineCardInterface>(
+      .get<TimelineCardInterface[]>(
             `${ api }/${ userName }/photos`,
             { params: pageParam }
           )

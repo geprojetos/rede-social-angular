@@ -3,7 +3,8 @@
     *ngFor="let card of cards"
     [url]="card.url"
     [description]="card.description"
+    (newList)="newListCards($event)"
 >
 </app-card-template>
 
-<app-button-load-card></app-button-load-card>
+<app-button-load-card [cards]="cards"></app-button-load-card>
