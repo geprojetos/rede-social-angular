@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { TimelineCardInterface } from '../../interfaces/timeline-card/timeline-card-interface';
@@ -11,7 +11,7 @@ import { TimelineCardInterface } from '../../interfaces/timeline-card/timeline-c
 })
 export class TimelineCardComponent implements OnInit {
 
-  @Input() cards: TimelineCardInterface[] = [];
+  cards: TimelineCardInterface[] = [];
 
   constructor(
     private _activatedRoute: ActivatedRoute
@@ -22,12 +22,9 @@ export class TimelineCardComponent implements OnInit {
     this._activatedRoute.params.subscribe(() => this.cards = this._activatedRoute.snapshot.data['cards']);
   };
 
-  newListCards(e) {
+  newListCards(newCards) {
 
-    console.log('recebendo nova lista');
-    
-    console.log(e);
-    
+    this.cards = newCards;
   }
 
 }

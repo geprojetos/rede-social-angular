@@ -35,16 +35,12 @@ export class ButtonLoadCardComponent implements OnInit {
       .listaCardsPagination(this.userName, ++this.page)
       .subscribe(cards => {
 
-        console.log(this.cards);
-        console.log(cards);
         this.cards = this.cards.concat(cards)
-        console.log(this.cards);
         this.newList.emit(this.cards)
 
         if(!cards.length) {
 
           this.visible = false;
-          console.log('Não possi mais cards');
         } 
         
       })
