@@ -8,6 +8,7 @@ import { TimelineCardService } from '../../services/timeline-card/timeline-card.
 import { TimelineCardResolve } from '../../resolvers/timeline-card/timeline-card.resolver';
 import { ButtonLoadCardModule } from './button-load-card/button-load-card.module';
 import { TimelineSearchModule } from '../timeline-search/timeline-search.module';
+import { TimelineSearchService } from '../../services/timeline-search/timeline-search.service';
 
 @NgModule({
   imports: [
@@ -25,7 +26,8 @@ import { TimelineSearchModule } from '../timeline-search/timeline-search.module'
   ],
   providers: [
     TimelineCardService,
-    TimelineCardResolve
+    TimelineCardResolve,
+    TimelineSearchService
   ]
 })
 export class TimelineCardModule { }

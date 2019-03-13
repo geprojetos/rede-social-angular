@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { UserService } from 'src/app/core/user/service/user.service';
+import { TimelineSearchService } from '../../services/timeline-search/timeline-search.service';
 
 @Component({
   selector: 'app-timeline-menu',
@@ -11,9 +12,11 @@ export class TimelineMenuComponent implements OnInit {
 
   userName: string;
   logged: boolean = false;
+  
 
   constructor(
-    private _userService: UserService
+    private _userService: UserService,
+    private _searchService: TimelineSearchService
   ) { }
 
   ngOnInit() {
@@ -25,6 +28,15 @@ export class TimelineMenuComponent implements OnInit {
     } else {
       this.logged = false;
     }
+  };
+
+  openSearch(e: Event) {
+
+    e.preventDefault();
+
+    console.log('Abir busca');
+    this._searchService
+      .toggleMenu()
   }
 
 }

@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { TimelineMenuComponent } from './timeline-menu.component';
 import { RouterModule } from '@angular/router';
 import { CoreModule } from 'src/app/core/core.module';
+import { TimelineSearchService } from '../../services/timeline-search/timeline-search.service';
 
 @NgModule({
   imports: [
@@ -16,6 +17,9 @@ import { CoreModule } from 'src/app/core/core.module';
   ],
   exports: [
     TimelineMenuComponent
+  ],
+  providers: [
+    TimelineSearchService
   ]
 })
 export class TimelineMenuModule { }
