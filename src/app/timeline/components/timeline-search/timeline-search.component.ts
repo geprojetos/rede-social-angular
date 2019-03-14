@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { TimelineSearchService } from '../../services/timeline-search/timeline-search.service';
+
 @Component({
   selector: 'app-timeline-search',
   templateUrl: './timeline-search.component.html',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TimelineSearchComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private _searchService: TimelineSearchService
+  ) { }
 
   ngOnInit() {
+  }
+
+  closeSearch(e: Event) {
+
+    e.preventDefault();
+    this._searchService.toggleMenu();
   }
 
 }

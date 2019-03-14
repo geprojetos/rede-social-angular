@@ -1,3 +1,26 @@
-<p>
-  timeline-search works!
-</p>
+<section class="position-fixed fixed-top page-width bg-info p-2 rounded-bottom">
+  <header class="position-relative mb-4 mt-2">
+    <p class="text-center text-white">
+        Busque pelo card desejado
+    </p>
+    <span 
+      class="position-absolute mr-2 close-search" 
+      (click)="closeSearch($event)"
+    >
+      <i class="fa fa-times-circle fa-2x text-white" aria-hidden="true"></i>
+    </span>
+  </header>
+  <form>
+    <div class="input-group mb-3">
+      <input 
+        type="search" 
+        class="form-control" 
+        placeholder="Buscar cards" 
+        aria-label="Buscar cards" 
+        aria-describedby="basic-addon2">
+      <div class="input-group-append bg-info p-1 pl-2 pr-2 rounded-right">
+        <i aria-hidden="true" class="fa fa-search fa-2x text-white"></i>
+      </div>
+    </div>
+  </form>
+</section>

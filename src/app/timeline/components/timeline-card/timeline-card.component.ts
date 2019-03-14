@@ -11,10 +11,11 @@ import { Observable } from 'rxjs';
   templateUrl: './timeline-card.component.html',
   styleUrls: ['./timeline-card.component.css']
 })
-export class TimelineCardComponent implements OnInit, OnChanges {
+export class TimelineCardComponent implements OnInit {
 
   cards: TimelineCardInterface[] = [];
   menu$: Observable<boolean>;
+  show: boolean;
 
   constructor(
     private _activatedRoute: ActivatedRoute,
@@ -26,18 +27,14 @@ export class TimelineCardComponent implements OnInit, OnChanges {
     this._activatedRoute.params.subscribe(() => this.cards = this._activatedRoute.snapshot.data['cards']);
 
     this.menu$ = this._searchService.menuObservable();
+
     this.menu$.subscribe(res => {
       console.log('recebendo do servico');
-      console.log(res);
+      this.show = res;
+      console.log(this.show);
     })
   };
-
-  ngOnChanges() {
-    this.menu$.subscribe(res => {
-      console.log('recebendo do servico');
-      console.log(res);
-    })
-  }
+ 
 
   
 

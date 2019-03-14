@@ -33,10 +33,7 @@ export class TimelineMenuComponent implements OnInit {
   openSearch(e: Event) {
 
     e.preventDefault();
-
-    console.log('Abir busca');
-    this._searchService
-      .toggleMenu()
+    this._searchService.toggleMenu()
   }
 
 }
