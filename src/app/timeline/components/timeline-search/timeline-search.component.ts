@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 
 import { TimelineSearchService } from '../../services/timeline-search/timeline-search.service';
 import { Observable } from 'rxjs';
@@ -14,6 +14,8 @@ export class TimelineSearchComponent implements OnInit {
   menuToggle: boolean;
   filter: string = '';
 
+  @ViewChild('inputSearch') closeSearchIcon: ElementRef;
+
   @Output() sendFilter: EventEmitter<string> = new EventEmitter();
 
   constructor(
@@ -23,7 +25,7 @@ export class TimelineSearchComponent implements OnInit {
   ngOnInit(): void {
 
     this.menu$ = this._searchService.menuObservable();
-    this.menu$.subscribe(res => this.menuToggle = res)
+    this.menu$.subscribe(res => this.menuToggle = res);
   };
 
   closeSearch(e: Event): void {
@@ -36,6 +38,13 @@ export class TimelineSearchComponent implements OnInit {
 
     e.preventDefault();
     this.sendFilter.emit(this.filter);
+  };
+
+  clearInput(e: Event, el): void {
+
+    el.value = '';
+    this.filter = '';
+    this.closeSearchIcon.nativeElement.focus();
   };
 
 }

@@ -14,14 +14,24 @@
   </header>
 
   <form (submit)="handleSubmit($event)">
-    <div class="input-group mb-3">
+    <div class="input-group mb-3 position-relative">
       <input 
+        #inputSearch
         type="search" 
         class="form-control rounded" 
         placeholder="Buscar cards" 
         aria-label="Buscar cards" 
         aria-describedby="basic-addon2"
-        (change)="filter = $event.target.value">
+        (change)="filter = $event.target.value"
+        (input)="filter = $event.target.value">
+
+        <span 
+          *ngIf="filter.length > 0"
+          class="fa fa-times text-muted close-text-search position-absolute p-2" 
+          aria-hidden="true" 
+          (click)="clearInput($event, inputSearch)">
+        </span>
+
       <div class="input-group-append bg-info rounded-right">
         <button type="submit" aria-hidden="true" class="fa fa-search fa-2x text-white border-0 bg-info"></button>
       </div>

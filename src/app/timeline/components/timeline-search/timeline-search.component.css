@@ -27,3 +27,10 @@
 .hide {
     top: -100%;
 }
+
+.close-text-search {
+    font-size: 23px;
+    font-size: 1.4375em;
+    right: 12%;
+    z-index: 5;
+}
