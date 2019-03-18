@@ -1,4 +1,6 @@
-<section class="position-fixed fixed-top page-width bg-info p-2 rounded-bottom">
+<section 
+  class="position-fixed fixed-top page-width bg-info p-2 rounded-bottom"
+  [ngClass]="{'show': menuToggle, 'hide': !menuToggle}">
   <header class="position-relative mb-4 mt-2">
     <p class="text-center text-white">
         Busque pelo card desejado
@@ -10,6 +12,7 @@
       <i class="fa fa-times-circle fa-2x text-white" aria-hidden="true"></i>
     </span>
   </header>
+
   <form>
     <div class="input-group mb-3">
       <input 
@@ -24,3 +27,9 @@
     </div>
   </form>
 </section>
+
+<div 
+  [ngClass]="{'overlay-search': menuToggle}"
+  (click)="closeSearch($event)"
+>
+</div>

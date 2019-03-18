@@ -3,3 +3,27 @@
     z-index: 2;
     right: 0;
 }
+
+.overlay-search {
+    background: rgba(0, 0, 0, .7);
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.show,
+.hide,
+.overlay-search {
+    transition: all .5s ease-in-out
+}
+
+.show {
+    top: 0;
+}
+
+.hide {
+    top: -100%;
+}
