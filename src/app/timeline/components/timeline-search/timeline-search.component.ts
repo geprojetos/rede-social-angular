@@ -38,9 +38,10 @@ export class TimelineSearchComponent implements OnInit {
 
     e.preventDefault();
     this.sendFilter.emit(this.filter);
+    this._searchService.toggleMenu();
   };
 
-  clearInput(e: Event, el): void {
+  clearInput(e: Event, el: HTMLInputElement): void {
 
     el.value = '';
     this.filter = '';
