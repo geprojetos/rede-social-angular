@@ -13,16 +13,17 @@
     </span>
   </header>
 
-  <form>
+  <form (submit)="handleSubmit($event)">
     <div class="input-group mb-3">
       <input 
         type="search" 
-        class="form-control" 
+        class="form-control rounded" 
         placeholder="Buscar cards" 
         aria-label="Buscar cards" 
-        aria-describedby="basic-addon2">
-      <div class="input-group-append bg-info p-1 pl-2 pr-2 rounded-right">
-        <i aria-hidden="true" class="fa fa-search fa-2x text-white"></i>
+        aria-describedby="basic-addon2"
+        (change)="filter = $event.target.value">
+      <div class="input-group-append bg-info rounded-right">
+        <button type="submit" aria-hidden="true" class="fa fa-search fa-2x text-white border-0 bg-info"></button>
       </div>
     </div>
   </form>

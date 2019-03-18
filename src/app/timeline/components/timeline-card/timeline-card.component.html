@@ -1,8 +1,8 @@
-<app-timeline-search></app-timeline-search>
+<app-timeline-search (sendFilter)="filter = $event"></app-timeline-search>
 
 <app-card-template
     class="timeline-card"
-    *ngFor="let card of cards"
+    *ngFor="let card of cards | timelineSearchCards:filter"
     [url]="card.url"
     [description]="card.description"
 >

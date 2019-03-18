@@ -12,6 +12,7 @@ import { TimelineCardInterface } from '../../interfaces/timeline-card/timeline-c
 export class TimelineCardComponent implements OnInit {
 
   cards: TimelineCardInterface[] = [];
+  filter: string;
 
   constructor(
     private _activatedRoute: ActivatedRoute,
@@ -26,7 +27,5 @@ export class TimelineCardComponent implements OnInit {
 
     this.cards = newCards;
   };
-
- 
 
 }

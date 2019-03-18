@@ -9,6 +9,7 @@ import { TimelineCardResolve } from '../../resolvers/timeline-card/timeline-card
 import { ButtonLoadCardModule } from './button-load-card/button-load-card.module';
 import { TimelineSearchModule } from '../timeline-search/timeline-search.module';
 import { TimelineSearchService } from '../../services/timeline-search/timeline-search.service';
+import { TimelineSearchPipe } from '../../pipes/timeline-search/timeline-search.pipe';
 
 @NgModule({
   imports: [
@@ -19,10 +20,12 @@ import { TimelineSearchService } from '../../services/timeline-search/timeline-s
     ButtonLoadCardModule
   ],
   declarations: [
-    TimelineCardComponent
+    TimelineCardComponent,
+    TimelineSearchPipe
   ],
   exports: [
-    TimelineCardComponent
+    TimelineCardComponent,
+    TimelineSearchPipe
   ],
   providers: [
     TimelineCardService,
