@@ -18,7 +18,7 @@ export class TimelineCardComponent implements OnInit {
     private _activatedRoute: ActivatedRoute,
   ) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
 
     this._activatedRoute.params.subscribe(() => this.cards = this._activatedRoute.snapshot.data['cards']);
   };

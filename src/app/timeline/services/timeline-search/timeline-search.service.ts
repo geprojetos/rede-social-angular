@@ -12,7 +12,6 @@ export class TimelineSearchService {
   toggleMenu() {
 
     this.menu = !this.menu;
-    console.log(this.menu);
     this.menuSubject.next(this.menu);
   }
 

@@ -1,0 +1,22 @@
+<div *ngIf="cardNotFound">
+  <div class="alert alert-warning">
+    <p>
+      Não foram encontrados nenhum card para a busca <b>"{{ filter }}"</b>
+    </p>
+    <p>
+      Verifique se o nome foi digitado corretamente, ou faça por uma nova busca utilizando a descrição do card.
+    </p>
+  </div>
+
+  <button class="btn btn-info mb-2" (click)="clearSearch()">Limpar busca</button>
+</div>
+
+<div *ngIf="cardFound">
+  <div class="alert alert-success">
+    <p>
+      Foram encontrados <b>"{{ cards.length }}"</b> cards para a busca <b>"{{ filter }}"</b>
+    </p>
+  </div>
+
+  <button class="btn btn-info mb-2" (click)="clearSearch()">Limpar busca</button>
+</div>

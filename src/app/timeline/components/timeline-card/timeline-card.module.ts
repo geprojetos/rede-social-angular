@@ -10,6 +10,7 @@ import { ButtonLoadCardModule } from './button-load-card/button-load-card.module
 import { TimelineSearchModule } from '../timeline-search/timeline-search.module';
 import { TimelineSearchService } from '../../services/timeline-search/timeline-search.service';
 import { TimelineSearchPipe } from '../../pipes/timeline-search/timeline-search.pipe';
+import { TimelineCardNotfoundModule } from '../timeline-card-notfound/timeline-card-notfound.module';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import { TimelineSearchPipe } from '../../pipes/timeline-search/timeline-search.
     HttpClientModule,
     CardTemplateModule,
     TimelineSearchModule,
-    ButtonLoadCardModule
+    ButtonLoadCardModule,
+    TimelineCardNotfoundModule
   ],
   declarations: [
     TimelineCardComponent,

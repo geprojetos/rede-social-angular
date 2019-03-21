@@ -1,11 +1,20 @@
 <app-timeline-search (sendFilter)="filter = $event"></app-timeline-search>
 
+<app-timeline-card-notfound
+    [cards]="cards | timelineSearchCards:filter"
+    [filter]="filter"
+    (cardsBeforeSearch)="filter = $event.filter && cards = $event.cards">
+</app-timeline-card-notfound>
+
 <app-card-template
     class="timeline-card"
     *ngFor="let card of cards | timelineSearchCards:filter"
     [url]="card.url"
-    [description]="card.description"
->
+    [description]="card.description">
 </app-card-template>
 
-<app-button-load-card [cards]="cards" (newList)="newListCards($event)"></app-button-load-card>
+<app-button-load-card 
+    [cards]="cards" 
+    (newList)="newListCards($event)"
+    *ngIf="!filter">
+</app-button-load-card>
