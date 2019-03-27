@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
@@ -18,7 +17,6 @@ export class UserInfoDetailsComponent implements OnInit {
 
   constructor(
     private _userService: UserService,
-    private _location: Location,
     private _router: Router
   ) { }
 
@@ -29,12 +27,6 @@ export class UserInfoDetailsComponent implements OnInit {
     this.user$ = this._userService.userObservable();
     
     this.userName = this._userService.userNameGet();
-  };
-
-  goBack(e: Event) {
-
-    e.preventDefault();
-    this._location.back();
   };
 
   logout(e: Event) {

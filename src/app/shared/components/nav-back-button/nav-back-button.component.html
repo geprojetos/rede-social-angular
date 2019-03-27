@@ -1,0 +1,14 @@
+<nav 
+  class="position-fixed fixed-top col-12 rounded-bottom page-width"
+  [ngClass]="navColor">
+  <ul class="list-unstyled mb-0 p-3 position-relative text-center">
+    <li class="nav-item position-absolute back-icon-left">
+      <a 
+        class="pt-2 pb-2 d-block"
+        (click)="goBack($event)">
+        <i class="fa fa-arrow-left fa-2x text-white" aria-hidden="true" [ngClass]="{'text-dark': navColor == 'bg-light'}"></i>
+      </a>
+    </li>
+    <li class="text-white" [ngClass]="{'text-dark': navColor == 'bg-light'}">{{ title }}</li>
+  </ul>
+</nav>
