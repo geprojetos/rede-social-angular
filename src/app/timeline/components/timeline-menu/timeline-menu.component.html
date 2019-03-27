@@ -4,26 +4,35 @@
     *ngIf="logged">
     <li class="nav-item">
       <a 
-        class="pt-2 pb-2 d-block"
-        [routerLink]="['/', userName, 'timeline']">
+        class="p-2 pl-3 pr-3 d-block"
+        [routerLink]="['/', userName, 'timeline']"
+        [routerLinkActive]="['bg-dark']"
+        [routerLinkActiveOptions]="{exact:true}">
         <i class="fa fa-home fa-2x text-white" aria-hidden="true"></i>
       </a>
     </li>
     <li class="nav-item">
-      <a class="pt-2 pb-2 d-block" (click)="openSearch($event)">
+      <a 
+        class="p-2 pl-3 pr-3 d-block" 
+        (click)="openSearch($event)">
         <i class="fa fa-search fa-2x text-white" aria-hidden="true"></i>
       </a>
     </li>
 
     <li class="nav-item">
-      <a class="pt-2 pb-2 d-block">
+      <a 
+        class="p-2 pl-3 pr-3 d-block"
+        [routerLinkActive]="['bg-dark']"
+        [routerLinkActiveOptions]="{exact:true}">
         <i class="fa fa-plus-square fa-2x text-white" aria-hidden="true"></i>
       </a>
     </li>
     <li class="nav-item">
       <a 
-        class="pt-2 pb-2 d-block"
-        [routerLink]="['user']">
+        class="p-2 pl-3 pr-3 d-block"
+        [routerLink]="['user']"
+        [routerLinkActive]="['bg-dark']"
+        [routerLinkActiveOptions]="{exact:true}">
         <i class="fa fa-user fa-2x text-white" aria-hidden="true"></i>
       </a>
     </li>
