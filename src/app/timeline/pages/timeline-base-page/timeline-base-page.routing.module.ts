@@ -21,7 +21,7 @@ const timelineBaseRoutes: Routes = [
             },
             {
                 path: 'user',
-                component: TimelineUserInfoComponent
+                loadChildren: '../timeline-user-page/timeline-user-page.module#TimelineUserPageModule'
             }
         ]
     }
