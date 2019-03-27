@@ -11,7 +11,7 @@ import { TimelineCardModule } from '../../components/timeline-card/timeline-card
     CommonModule,
     TimelineMenuModule,
     TimelineCardModule,
-    TimelinePageRoutingModule
+    // TimelinePageRoutingModule
   ],
   declarations: [
     TimelinePageComponent

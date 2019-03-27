@@ -9,7 +9,7 @@ import { TimelineUserInfoModule } from '../../components/timeline-user-info/time
   imports: [
     CommonModule,
     TimelineUserInfoModule,
-    TimelineUserPageRoutingModule
+    // TimelineUserPageRoutingModule
   ],
   declarations: [
     TimelineUserPageComponent

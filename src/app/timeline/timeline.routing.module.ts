@@ -5,12 +5,16 @@ const timelineRoutes: Routes = [
 
     {
         path: '',
-        loadChildren: './pages/timeline-page/timeline-page.module#TimelinePageModule'
-    },
-    {
-        path: 'user',
-        loadChildren: './pages/timeline-user-page/timeline-user-page.module#TimelineUserPageModule'
+        loadChildren: './pages/timeline-base-page/timeline-base-page.module#TimelineBasePageModule'
     }
+    // {
+    //     path: '',
+    //     loadChildren: './pages/timeline-page/timeline-page.module#TimelinePageModule'
+    // },
+    // {
+    //     path: 'user',
+    //     loadChildren: './pages/timeline-user-page/timeline-user-page.module#TimelineUserPageModule'
+    // }
 ];
 
 @NgModule({
