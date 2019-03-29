@@ -1,3 +1,54 @@
-<p>
-  timeline-add-card-page works!
-</p>
+<app-nav-back-button
+  title="Cadastro de cards"
+  navColor="bg-success">
+</app-nav-back-button>
+
+<form class="mt-5 pt-3">
+  <fieldset>
+    <div class="form-group">
+      <label for="inputImage">Adicione uma imagem para o seu card:</label>
+      <input 
+        type="file" 
+        class="form-control" 
+        id="inputImage" 
+        aria-describedby="imageHelp">
+      
+        <small 
+          id="imageHelp" 
+          class="form-text text-danger">
+            Imagem obrigatória
+        </small>
+    </div>
+
+    <div class="form-group">
+      <label for="textareaDescription">Adicione uma descrição para o seu card:</label>
+      <textarea 
+        name="textareaDescription" 
+        id="textareaDescription" 
+        class="form-control"
+        placeholder="Digite a descrição do seu card aqui..."
+        aria-describedby="teaxtareaHelp">
+      </textarea>
+      
+      <small 
+        id="teaxtareaHelp" 
+        class="form-text text-danger">
+          Descrição do card obrigatória
+      </small>
+    </div>
+
+    <div class="form-group form-check">
+      <input 
+        type="checkbox" 
+        class="form-check-input" 
+        id="inputCheck"
+        checked>
+      <label class="form-check-label" for="inputCheck">Permitir comentários?</label>
+    </div>
+  </fieldset>
+  
+  <fieldset>
+    <button type="submit" class="btn col-6 btn-success">Cadastrar</button>
+    <button type="submit" class="btn col-6 btn-danger">Cancelar</button>
+  </fieldset>
+</form>
