@@ -1,5 +1,5 @@
 <section 
-  class="position-fixed fixed-top page-width bg-info p-2 rounded-bottom"
+  class="position-fixed fixed-top page-width bg-dark p-2 rounded-bottom"
   [ngClass]="{'show': menuToggle, 'hide': !menuToggle}">
   <header class="position-relative mb-4 mt-2">
     <p class="text-center text-white">
@@ -32,8 +32,8 @@
           (click)="clearInput($event, inputSearch)">
         </span>
 
-      <div class="input-group-append bg-info rounded-right">
-        <button type="submit" aria-hidden="true" class="fa fa-search fa-2x text-white border-0 bg-info"></button>
+      <div class="input-group-append rounded-right">
+        <button type="submit" aria-hidden="true" class="fa fa-search fa-2x text-white border-0 bg-transparent"></button>
       </div>
     </div>
   </form>
