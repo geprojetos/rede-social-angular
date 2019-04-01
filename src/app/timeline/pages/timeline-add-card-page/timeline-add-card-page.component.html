@@ -3,7 +3,11 @@
   navColor="bg-success">
 </app-nav-back-button>
 
-<form class="mt-5 pt-3">
+<form 
+  class="mt-5 pt-3"
+  [formGroup]="formAddCards"
+  #form="ngForm"
+  (submit)="addCard($event)">
   <fieldset>
     <div class="form-group">
       <label for="inputImage">Adicione uma imagem para o seu card:</label>
@@ -11,11 +15,14 @@
         type="file" 
         class="form-control" 
         id="inputImage" 
-        aria-describedby="imageHelp">
+        aria-describedby="imageHelp"
+        formControlName="file"
+        (change)="file = $event.target.files[0]">
       
         <small 
           id="imageHelp" 
-          class="form-text text-danger">
+          class="form-text text-danger"
+          *ngIf="formAddCards.get('file').errors?.required && (form.submitted || formAddCards.get('file').touched)">
             Imagem obrigatória
         </small>
     </div>
@@ -27,28 +34,31 @@
         id="textareaDescription" 
         class="form-control"
         placeholder="Digite a descrição do seu card aqui..."
-        aria-describedby="teaxtareaHelp">
+        aria-describedby="teaxtareaHelp"
+        formControlName="textareaDescription">
       </textarea>
       
       <small 
         id="teaxtareaHelp" 
-        class="form-text text-danger">
-          Descrição do card obrigatória
+        class="form-text text-danger"
+        *ngIf="formAddCards.get('textareaDescription').errors?.maxlength">
+          A descrição deve conter no máximo 300 caracteres
       </small>
     </div>
 
     <div class="form-group form-check">
       <input 
         type="checkbox" 
+        name="inputCheck"
         class="form-check-input" 
         id="inputCheck"
-        checked>
+        formControlName="inputCheck">
       <label class="form-check-label" for="inputCheck">Permitir comentários?</label>
     </div>
   </fieldset>
   
   <fieldset>
     <button type="submit" class="btn col-6 btn-success">Cadastrar</button>
-    <button type="submit" class="btn col-6 btn-danger">Cancelar</button>
+    <button type="button" class="btn col-6 btn-danger">Cancelar</button>
   </fieldset>
 </form>

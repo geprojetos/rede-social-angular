@@ -29,5 +29,16 @@ export class TimelineCardService {
             `${ api }/${ userName }/photos`,
             { params: pageParam }
           )
+  };
+
+  upload(file: File, description: string, allowComments: boolean) {
+
+    let formData = new FormData();
+
+    formData.append('description', description);
+    formData.append('allowComments', allowComments ? 'true' : 'false');
+    formData.append('imageFile', file);
+
+    return this._http.post(`${ api }/photos/upload`, { formData })
   }
 }
