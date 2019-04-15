@@ -12,6 +12,7 @@ export class TimelineAddCardPageComponent implements OnInit {
 
   formAddCards: FormGroup;
   file: File;
+  preview: string = '';
 
   constructor(
     private _fb: FormBuilder,
@@ -49,6 +50,18 @@ export class TimelineAddCardPageComponent implements OnInit {
       .subscribe(res => {
         console.log(res);
       })
+  };
+
+  handleFile(file: File): void {
+    
+    const reader = new FileReader();
+    console.log(reader);
+
+    this.file = file;
+
+    reader.readAsDataURL(file);
+
+    reader.onload = (e: any) => this.preview = e.target.result;      
   }
 
 }
