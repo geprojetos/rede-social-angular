@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { TimelineCardService } from '../../services/timeline-card/timeline-card.service';
+import { Router } from '@angular/router';
+import { UserService } from 'src/app/core/user/service/user.service';
 
 @Component({
   selector: 'app-timeline-add-card-page',
@@ -16,7 +18,9 @@ export class TimelineAddCardPageComponent implements OnInit {
 
   constructor(
     private _fb: FormBuilder,
-    private _timelineService: TimelineCardService
+    private _timelineService: TimelineCardService,
+    private _router: Router,
+    private _userService: UserService
   ) { }
 
   ngOnInit(): void {
@@ -46,9 +50,12 @@ export class TimelineAddCardPageComponent implements OnInit {
     console.log(this.file, inputCheck, textareaDescription);
     
     this._timelineService
-      .upload(this.file, inputCheck, textareaDescription)
+      .upload(this.file, textareaDescription, inputCheck)
       .subscribe(res => {
-        console.log(res);
+        
+        const userName = this._userService.userNameGet();
+        
+        this._router.navigate([userName, 'timeline']);
       })
   };
 
