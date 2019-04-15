@@ -11,7 +11,14 @@
   <fieldset>
     <div class="form-group">
       <label for="inputImage">Adicione uma imagem para o seu card:</label>
+      <div class="text-center">
+        <button class="btn text-white bg-success" (click)="inputFile.click()">
+          <i class="fa fa-image fa-5x"></i>
+        </button>
+      </div>
       <input 
+        #inputFile
+        hidden
         type="file" 
         class="form-control" 
         id="inputImage" 
