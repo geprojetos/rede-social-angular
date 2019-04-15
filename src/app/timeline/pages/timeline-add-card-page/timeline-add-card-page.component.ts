@@ -55,13 +55,18 @@ export class TimelineAddCardPageComponent implements OnInit {
   handleFile(file: File): void {
     
     const reader = new FileReader();
-    console.log(reader);
 
     this.file = file;
 
     reader.readAsDataURL(file);
 
     reader.onload = (e: any) => this.preview = e.target.result;      
+  };
+
+  handleClear(e: Event): void {
+
+    this.preview = '';
+    this.formAddCards.reset();
   }
 
 }

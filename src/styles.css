@@ -12,7 +12,7 @@
     background: #fff;
     min-height: 100%;
     padding: 8px;
-    padding: .5em;
+    padding: .5em .5em 60px .5em;
     position: absolute;
     top: 0;
 }
