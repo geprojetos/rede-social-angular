@@ -7,6 +7,7 @@ import { TimelineAddCardPageRoutingModule } from './timeline-add-card-page.routi
 import { NavBackButtonModule } from 'src/app/shared/components/nav-back-button/nav-back-button.module';
 import { TimelineCardService } from '../../services/timeline-card/timeline-card.service';
 import { CardTemplateModule } from '../../components/timeline-card/card-template/card-template.module';
+import { AuthGuard } from 'src/app/shared/guards/auth.guard';
 
 @NgModule({
   imports: [
@@ -23,7 +24,8 @@ import { CardTemplateModule } from '../../components/timeline-card/card-template
     TimelineAddCardPageComponent
   ],
   providers: [
-    TimelineCardService
+    TimelineCardService,
+    AuthGuard
   ]
 })
 export class TimelineAddCardPageModule { }
