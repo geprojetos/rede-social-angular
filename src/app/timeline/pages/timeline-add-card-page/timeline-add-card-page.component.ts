@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TimelineCardService } from '../../services/timeline-card/timeline-card.service';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/core/user/service/user.service';
+import { HttpEvent, HttpEventType } from '@angular/common/http';
 
 @Component({
   selector: 'app-timeline-add-card-page',
@@ -15,6 +16,7 @@ export class TimelineAddCardPageComponent implements OnInit {
   formAddCards: FormGroup;
   file: File;
   preview: string = '';
+  progress: number = 0;
 
   constructor(
     private _fb: FormBuilder,
@@ -51,12 +53,18 @@ export class TimelineAddCardPageComponent implements OnInit {
     
     this._timelineService
       .upload(this.file, textareaDescription, inputCheck)
-      .subscribe(res => {
+      .subscribe((event: HttpEvent<any>) => {
         
-        const userName = this._userService.userNameGet();
-        
-        this._router.navigate([userName, 'timeline']);
-      })
+        if(event.type == HttpEventType.UploadProgress) {
+
+          this.progress = Math.round(100 * event.loaded / event.total);
+        } else if(event.type == HttpEventType.Response) {
+
+          const userName = this._userService.userNameGet();
+          
+          this._router.navigate([userName, 'timeline']);
+        }
+      }, erro => console.log(erro))
   };
 
   handleFile(file: File): void {

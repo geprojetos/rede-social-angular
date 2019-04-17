@@ -76,6 +76,9 @@
   </fieldset>
   
   <fieldset>
+    <div class="text-center display-4 alert alert-info" *ngIf="progress" >
+      <p>progresso {{ progress }} %</p>
+    </div>
     <button type="submit" class="btn col-6 btn-success">Cadastrar</button>
     <button type="button" class="btn col-6 btn-info" (click)="handleClear($event)">Limpar</button>
   </fieldset>

@@ -39,6 +39,14 @@ export class TimelineCardService {
     formData.append('allowComments', allowComments ? 'true' : 'false');
     formData.append('imageFile', file);
 
-    return this._http.post(`${ api }/photos/upload`, formData)
+    return this._http
+      .post(
+        `${ api }/photos/upload`, 
+        formData,
+        {
+          observe: 'events',
+          reportProgress: true
+        }
+      )
   }
 }
