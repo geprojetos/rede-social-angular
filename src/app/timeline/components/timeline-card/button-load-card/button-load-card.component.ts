@@ -23,6 +23,10 @@ export class ButtonLoadCardComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
+    if(this.cards.length < 10) {
+      this.visible = false
+    }
   };
 
   loadMore(e: Event) {

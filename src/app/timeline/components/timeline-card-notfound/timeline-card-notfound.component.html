@@ -24,3 +24,20 @@
     <button class="btn btn-dark mb-2" (click)="clearSearch()">Limpar busca</button>
   </div>
 </div>
+
+<div *ngIf="messageNoCards">
+  <header class="alert alert-info text-center">
+    <h1>Você ainda não possui nenhum card na sua lista</h1>
+    <p>Faça já o cadastro de um novo, é simples e rápido</p>
+  </header>
+
+  <div class="text-center">
+    <a class="btn btn-info" [routerLink]="['/', userName, 'timeline', 'add']">Adicionar um novo card</a>
+  </div>
+</div>
+
+<div *ngIf="notUserOwner">
+  <header class="alert alert-info text-center">
+    <h1>Este usuário ainda não possui nenhum card cadastrado</h1>
+  </header>
+</div>
