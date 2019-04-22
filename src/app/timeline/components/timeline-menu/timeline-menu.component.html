@@ -4,37 +4,41 @@
     *ngIf="logged">
     <li class="nav-item">
       <a 
-        class="p-2 pl-3 pr-3 d-block text-white"
+        class="d-block text-white text-center pl-3 pr-3 pt-1"
         [routerLink]="['/', userName, 'timeline']"
         [routerLinkActive]="['bg-light', 'text-dark']"
         [routerLinkActiveOptions]="{exact:true}">
-        <i class="fa fa-home fa-2x" aria-hidden="true"></i>
+        <i class="fa fa-home fa-2x d-block" aria-hidden="true"></i>
+        <small>home</small>
       </a>
     </li>
     <li class="nav-item">
       <a 
-        class="p-2 pl-3 pr-3 d-block text-white" 
+        class="d-block text-white text-center pl-3 pr-3 pt-1" 
         (click)="openSearch($event)">
-        <i class="fa fa-search fa-2x" aria-hidden="true"></i>
+        <i class="fa fa-search fa-2x d-block" aria-hidden="true"></i>
+        <small>pesquisar</small>
       </a>
     </li>
 
     <li class="nav-item">
       <a 
-        class="p-2 pl-3 pr-3 d-block text-white"
+        class="d-block text-white text-center pl-3 pr-3 pt-1"
         [routerLink]="['/', userName, 'timeline', 'add']"
         [routerLinkActive]="['bg-success']"
         [routerLinkActiveOptions]="{exact:true}">
-        <i class="fa fa-plus-square fa-2x" aria-hidden="true"></i>
+        <i class="fa fa-plus-square fa-2x d-block" aria-hidden="true"></i>
+        <small>adicionar</small>
       </a>
     </li>
     <li class="nav-item">
       <a 
-        class="p-2 pl-3 pr-3 d-block text-white"
+        class="d-block text-white text-center pl-3 pr-3 pt-1"
         [routerLink]="['/', userName, 'timeline', 'user']"
         [routerLinkActive]="['bg-info']"
         [routerLinkActiveOptions]="{exact:true}">
-        <i class="fa fa-user fa-2x" aria-hidden="true"></i>
+        <i class="fa fa-user fa-2x d-block" aria-hidden="true"></i>
+        <small>configurações</small>
       </a>
     </li>
   </ul>

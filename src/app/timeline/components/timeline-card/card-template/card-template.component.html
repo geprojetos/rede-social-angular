@@ -1,12 +1,20 @@
 <div class="card mb-2">
-  <img 
-    class="card-img-top" 
-    [src]="url" 
-    [alt]="description"
-    [title]="description">
-  <div class="card-body">
-    <p class="card-text">
-      {{ description }}
-    </p>
-  </div>
+  <figure>
+    <img 
+      class="card-img-top" 
+      [src]="url" 
+      [alt]="description"
+      [title]="description">
+    <figcaption class="p-3">
+      <div class="text-right mb-3">
+        <button class="btn btn-danger" title="Remover">
+            <i class="fa fa-trash" aria-hidden="true"></i>
+        </button>
+      </div>
+
+      <p class="card-text">
+        {{ description }}
+      </p>
+    </figcaption>
+  </figure>
 </div>
