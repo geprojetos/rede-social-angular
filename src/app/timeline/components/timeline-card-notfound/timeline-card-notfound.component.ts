@@ -33,6 +33,7 @@ export class TimelineCardNotfoundComponent implements OnInit, OnChanges {
     this.userName = this._userService.userNameGet();
     this._activatedRoute.params.subscribe(params => this.paramsUserName = params.userName);
 
+    this.notHaveCardAdd();
     this.notHaveCardIsNotOwner();
   };
 
