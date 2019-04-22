@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { TimelineCardInterface } from '../../interfaces/timeline-card/timeline-card-interface';
+import { TimelineCardService } from '../../services/timeline-card/timeline-card.service';
 
 
 @Component({
@@ -16,6 +17,7 @@ export class TimelineCardComponent implements OnInit {
 
   constructor(
     private _activatedRoute: ActivatedRoute,
+    private _timelineService: TimelineCardService
   ) { }
 
   ngOnInit(): void {
@@ -27,5 +29,10 @@ export class TimelineCardComponent implements OnInit {
 
     this.cards = newCards;
   };
+
+  removeCard() {
+
+    this._timelineService.remove();
+  }
 
 }

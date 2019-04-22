@@ -11,6 +11,8 @@
     *ngFor="let card of cards | timelineSearchCards:filter"
     [url]="card.url"
     [description]="card.description">
+
+    <app-icon-remove (removeCard)="removeCard()"></app-icon-remove>
 </app-card-template>
 
 <app-button-load-card 

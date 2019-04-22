@@ -11,6 +11,7 @@ import { TimelineSearchModule } from '../timeline-search/timeline-search.module'
 import { TimelineSearchService } from '../../services/timeline-search/timeline-search.service';
 import { TimelineSearchPipe } from '../../pipes/timeline-search/timeline-search.pipe';
 import { TimelineCardNotfoundModule } from '../timeline-card-notfound/timeline-card-notfound.module';
+import { TimelineIconRemoveModule } from '../timeline-icon-remove/timeline-icon-remove.module';
 
 @NgModule({
   imports: [
@@ -19,7 +20,8 @@ import { TimelineCardNotfoundModule } from '../timeline-card-notfound/timeline-c
     CardTemplateModule,
     TimelineSearchModule,
     ButtonLoadCardModule,
-    TimelineCardNotfoundModule
+    TimelineCardNotfoundModule,
+    TimelineIconRemoveModule
   ],
   declarations: [
     TimelineCardComponent,
