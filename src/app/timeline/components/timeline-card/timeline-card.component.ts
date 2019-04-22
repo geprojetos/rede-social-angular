@@ -30,9 +30,21 @@ export class TimelineCardComponent implements OnInit {
     this.cards = newCards;
   };
 
-  removeCard() {
+  removeCard(id: number): void {
 
-    this._timelineService.remove();
+    this._timelineService
+      .remove(id)
+      .subscribe(() => {
+        
+        this.cards.forEach((card, i) => {
+
+          if(card.id === id) {
+            this.cards.splice(i, 1);
+          }      
+        })
+
+        console.log(this.cards);
+      }, erro => console.log(erro))
   }
 
 }

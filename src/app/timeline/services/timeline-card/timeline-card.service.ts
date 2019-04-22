@@ -50,8 +50,9 @@ export class TimelineCardService {
       )
   };
 
-  remove() {
+  remove(id: number) {
 
-    console.log('removendo card');
+    return this._http
+      .delete(`${ api }/photos/${ id }`);
   }
 }
