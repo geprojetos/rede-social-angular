@@ -48,5 +48,10 @@ export class TimelineCardService {
           reportProgress: true
         }
       )
+  };
+
+  remove() {
+
+    console.log('removendo card');
   }
 }

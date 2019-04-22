@@ -6,11 +6,7 @@
       [alt]="description"
       [title]="description">
     <figcaption class="p-3">
-      <div class="text-right mb-3">
-        <button class="btn btn-danger" title="Remover">
-            <i class="fa fa-trash" aria-hidden="true"></i>
-        </button>
-      </div>
+      <ng-content></ng-content>
 
       <p class="card-text">
         {{ description }}
