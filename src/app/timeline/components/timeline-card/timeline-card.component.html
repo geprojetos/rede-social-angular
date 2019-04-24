@@ -12,7 +12,11 @@
     [url]="card.url"
     [description]="card.description">
 
-    <app-icon-remove (removeCard)="removeCard(card.id)"></app-icon-remove>
+    <app-icon-remove 
+        appOwnerDirective
+        [card]="card"
+        (removeCard)="removeCard(card.id)">
+    </app-icon-remove>
 </app-card-template>
 
 <app-button-load-card 
