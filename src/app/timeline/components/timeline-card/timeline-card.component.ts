@@ -3,6 +3,9 @@ import { ActivatedRoute } from '@angular/router';
 
 import { TimelineCardInterface } from '../../interfaces/timeline-card/timeline-card-interface';
 import { TimelineCardService } from '../../services/timeline-card/timeline-card.service';
+import { UserService } from 'src/app/core/user/service/user.service';
+import { Observable } from 'rxjs';
+import { loginInterface } from 'src/app/login/interfaces/login-interface';
 
 
 @Component({
@@ -14,14 +17,19 @@ export class TimelineCardComponent implements OnInit {
 
   cards: TimelineCardInterface[] = [];
   filter: string;
+  user$: Observable<loginInterface>;
+  user: loginInterface;
 
   constructor(
     private _activatedRoute: ActivatedRoute,
-    private _timelineService: TimelineCardService
+    private _timelineService: TimelineCardService,
+    private _userService: UserService
   ) { }
 
   ngOnInit(): void {
 
+    this._userService.isLogged() && this._userService.userDecodifyToken();
+    this._userService.userObservable().subscribe(user => this.user = user)
     this._activatedRoute.params.subscribe(() => this.cards = this._activatedRoute.snapshot.data['cards']);
   };
  

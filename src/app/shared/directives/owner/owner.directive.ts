@@ -1,7 +1,7 @@
 import { Directive, OnInit, Input, ElementRef, Renderer } from '@angular/core';
 
 import { TimelineCardInterface } from 'src/app/timeline/interfaces/timeline-card/timeline-card-interface';
-import { UserService } from 'src/app/core/user/service/user.service';
+import { loginInterface } from 'src/app/login/interfaces/login-interface';
 
 @Directive({
   selector: '[appOwnerDirective]'
@@ -9,31 +9,22 @@ import { UserService } from 'src/app/core/user/service/user.service';
 export class OwnerDirective implements OnInit {
 
   @Input() card: TimelineCardInterface;
+  @Input() user: loginInterface;
 
   constructor(
-    private _userService: UserService,
     private _el: ElementRef<any>,
     private _renderer: Renderer
   ) { }
 
   ngOnInit() {
     
-    if(this.card.userId) {
+    if(!this.user || this.user.id != this.card.userId) {
 
-      this._userService
-        .userObservable()
-        .subscribe(user => {
-  
-          if(!user || user.id != this.card.userId) {
-  
-            this._renderer.setElementStyle(
-              this._el.nativeElement,
-              'display',
-              'none'
-            )
-            return;
-          }          
-        }, erro => console.log(erro))
+      this._renderer.setElementStyle(
+        this._el.nativeElement,
+        'display',
+        'none'
+      )
     }
   }
 }
