@@ -17,7 +17,6 @@ export class TimelineCardComponent implements OnInit {
 
   cards: TimelineCardInterface[] = [];
   filter: string;
-  user$: Observable<loginInterface>;
   user: loginInterface;
 
   constructor(
