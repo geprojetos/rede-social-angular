@@ -5,12 +5,14 @@ import { RouterModule } from '@angular/router';
 import { TimelineMenuComponent } from './timeline-menu.component';
 import { CoreModule } from 'src/app/core/core.module';
 import { TimelineSearchService } from '../../services/timeline-search/timeline-search.service';
+import { MessageModule } from 'src/app/shared/components/message/message.module';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
-    CoreModule
+    CoreModule,
+    MessageModule
   ],
   declarations: [
     TimelineMenuComponent
