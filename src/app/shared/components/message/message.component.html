@@ -1,3 +1,16 @@
-<p class="fixed-top">
-  message works!
-</p>
+<div class="fixed-top">
+  <p 
+    *ngFor="let message of messages"
+    class="alert text-center"
+    [ngClass]="{
+      'alert-success': message.success,
+      'alert-info': message.info,
+      'alert-warning': message.warning,
+      'alert-danger': message.danger
+    }">
+    {{ message?.success }}
+    {{ message?.info }}
+    {{ message?.warning }}
+    {{ message?.danger }}
+  </p>
+</div>
