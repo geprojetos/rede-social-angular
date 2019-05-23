@@ -15,7 +15,7 @@ export class MessageService {
 
     new MessageAplication(message, MessageType.success);
 
-    this.messages.push({success: message});
+    this.messages = [{success: message}];
     this.messageSubject.next(this.messages);
   };
 
@@ -23,7 +23,7 @@ export class MessageService {
     
     new MessageAplication(message, MessageType.info);
 
-    this.messages.push({info: message});
+    this.messages = [{info: message}];
     this.messageSubject.next(this.messages);
   };
 
@@ -31,7 +31,7 @@ export class MessageService {
 
     new MessageAplication(message, MessageType.warning)
 
-    this.messages.push({warning: message});
+    this.messages = [{warning: message}];
     this.messageSubject.next(this.messages);
   };
 
@@ -39,7 +39,7 @@ export class MessageService {
 
     new MessageAplication(message, MessageType.danger);
 
-    this.messages.push({danger: message});
+    this.messages = [{danger: message}];
     this.messageSubject.next(this.messages);
   };
 

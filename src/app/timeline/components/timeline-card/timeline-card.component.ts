@@ -50,7 +50,7 @@ export class TimelineCardComponent implements OnInit {
           }      
         })
 
-        this._messageService.info('Card removido :)');
+        this._messageService.info('Card removido');
         console.log(this.cards);
       }, erro => {
         console.log(erro);

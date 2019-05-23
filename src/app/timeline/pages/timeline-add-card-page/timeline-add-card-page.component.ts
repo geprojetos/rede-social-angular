@@ -18,6 +18,7 @@ export class TimelineAddCardPageComponent implements OnInit {
   file: File;
   preview: string = '';
   progress: number = 0;
+  showProgress: number;
 
   constructor(
     private _fb: FormBuilder,
@@ -62,7 +63,8 @@ export class TimelineAddCardPageComponent implements OnInit {
 
           const userName = this._userService.userNameGet();
           
-          this._messageService.success('Card Cadastrado com sucesso');
+          this.showProgress = this.progress;
+          this._messageService.success('Card Cadastrado');
           this._router.navigate([userName, 'timeline']);
         }
       }, erro => {

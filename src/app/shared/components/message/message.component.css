@@ -1,0 +1,12 @@
+.message-show,
+.message-hide {
+    transition: all .5s ease-in-out;
+}
+
+.message-hide {
+    opacity: 0;
+}
+
+.message-show {
+    opacity: 1;
+}

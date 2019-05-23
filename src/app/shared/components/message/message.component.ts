@@ -13,6 +13,7 @@ export class MessageComponent implements OnInit {
 
   message$: Observable<any[]>;
   messages: any[] = [];
+  show: string = '';
 
   constructor(
     private _messageService: MessageService
@@ -24,16 +25,11 @@ export class MessageComponent implements OnInit {
       this.message$.subscribe(res => {
         
         if(res) {
-          
           this.messages = res;
-          setTimeout(() => this.clearMessage(res), this.timeout);
+          this.show = 'message-show';
+          setTimeout(() => this.show = 'message-hide', this.timeout);
         };
   
       }, erro => console.log(erro))
-  };
-  
-  clearMessage(message) {
-    
-    this.messages = this.messages.filter(data => message == data);
   };
 };
