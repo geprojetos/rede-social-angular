@@ -11,15 +11,14 @@ export class MessageComponent implements OnInit {
 
   @Input() timeout = 4000;
 
-  message$: Observable<string>;
-  messages: string;
+  message$: Observable<any[]>;
+  messages: any[] = [];
 
   constructor(
     private _messageService: MessageService
   ) { }
 
   ngOnInit() {
-    console.log('ok');
     
     this.message$ = this._messageService.messageObservable();
     this.message$.subscribe(res => {
@@ -34,6 +33,11 @@ export class MessageComponent implements OnInit {
   
   clearMessage(message) {
     console.log('apgar a mensagem');
-    console.log(message);
+    console.log(this.messages);
+    this.messages = this.messages.filter(data => message == data);
+    console.log('apagado');
+    
+    console.log(this.messages);
+    
   }
 }

@@ -6,7 +6,7 @@ import { MessageAplication, MessageType } from '../message';
 @Injectable()
 export class MessageService {
 
-  messageSubject: BehaviorSubject<string> = new BehaviorSubject(null);
+  messageSubject: BehaviorSubject<any[]> = new BehaviorSubject(null);
   messages: any = [];
 
   constructor() { }
