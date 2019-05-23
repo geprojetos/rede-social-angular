@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 import { MessageAplication, MessageType } from '../message';
 
@@ -11,13 +11,7 @@ export class MessageService {
 
   constructor() { }
 
-  // message(message: string) {
-
-  //   this.messages.push({success: message});
-  //   new MessageAplication(message, MessageType.success);
-  // };
-
-  success(message: string) {
+  success(message: string): void {
 
     new MessageAplication(message, MessageType.success);
 
@@ -25,7 +19,7 @@ export class MessageService {
     this.messageSubject.next(this.messages);
   };
 
-  info(message: string) {
+  info(message: string): void {
     
     new MessageAplication(message, MessageType.info);
 
@@ -33,7 +27,23 @@ export class MessageService {
     this.messageSubject.next(this.messages);
   };
 
-  messageObservable() {
+  warning(message: string): void {
+
+    new MessageAplication(message, MessageType.warning)
+
+    this.messages.push({warning: message});
+    this.messageSubject.next(this.messages);
+  };
+
+  danger(message: string): void {
+
+    new MessageAplication(message, MessageType.danger);
+
+    this.messages.push({danger: message});
+    this.messageSubject.next(this.messages);
+  };
+
+  messageObservable(): Observable<any[]> {
     return this.messageSubject.asObservable();
-  }
-}
+  };
+};

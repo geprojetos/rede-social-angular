@@ -32,12 +32,7 @@ export class MessageComponent implements OnInit {
   };
   
   clearMessage(message) {
-    console.log('apgar a mensagem');
-    console.log(this.messages);
+    
     this.messages = this.messages.filter(data => message == data);
-    console.log('apagado');
-    
-    console.log(this.messages);
-    
-  }
-}
+  };
+};

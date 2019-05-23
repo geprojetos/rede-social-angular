@@ -32,9 +32,9 @@ export class TimelineCardComponent implements OnInit {
     this._userService.userObservable().subscribe(user => this.user = user)
     this._activatedRoute.params.subscribe(() => this.cards = this._activatedRoute.snapshot.data['cards']);
     this._messageService.success('Success mensagem 1');
-    this._messageService.success('Success mensagem 2');
-    this._messageService.info('Info menssagem 1')
-    this._messageService.info('Info menssagem 2')
+    this._messageService.info('Info menssagem 1');
+    this._messageService.warning('Warning Message');
+    this._messageService.danger('Danger mensagem')
   };
  
   newListCards(newCards): void {
