@@ -5,6 +5,7 @@ import { TimelineCardInterface } from '../../interfaces/timeline-card/timeline-c
 import { TimelineCardService } from '../../services/timeline-card/timeline-card.service';
 import { UserService } from 'src/app/core/user/service/user.service';
 import { loginInterface } from 'src/app/login/interfaces/login-interface';
+import { MessageService } from 'src/app/shared/components/message/services/message.service';
 
 @Component({
   selector: 'app-timeline-card',
@@ -21,6 +22,7 @@ export class TimelineCardComponent implements OnInit {
     private _activatedRoute: ActivatedRoute,
     private _timelineService: TimelineCardService,
     private _userService: UserService,
+    private _messageService: MessageService
   ) { }
 
   ngOnInit(): void {
@@ -48,8 +50,11 @@ export class TimelineCardComponent implements OnInit {
           }      
         })
 
+        this._messageService.info('Card removido :)');
         console.log(this.cards);
-      }, erro => console.log(erro))
-  }
-
-}
+      }, erro => {
+        console.log(erro);
+        this._messageService.warning('Não foi possível remover o card, tente novamente');
+      });
+  };
+};
