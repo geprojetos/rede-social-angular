@@ -5,7 +5,7 @@ export class MessageAplication {
         private _type: MessageType
     ) { }
 
-    get message() {
+    get message(): string {
         return this._message
     };
 
@@ -14,7 +14,7 @@ export class MessageAplication {
         this._message = message;
     };
 
-    get type() {
+    get type(): MessageType {
         return this._type
     };
 

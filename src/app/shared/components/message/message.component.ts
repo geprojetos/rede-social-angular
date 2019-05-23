@@ -20,15 +20,16 @@ export class MessageComponent implements OnInit {
 
   ngOnInit() {
     
-    this.message$ = this._messageService.messageObservable();
-    this.message$.subscribe(res => {
-      
-      console.log(res);
-      this.messages = res;
-
-      setTimeout(() => this.clearMessage(res), this.timeout);
-
-    }, erro => console.log(erro))
+      this.message$ = this._messageService.messageObservable();
+      this.message$.subscribe(res => {
+        
+        if(res) {
+          
+          this.messages = res;
+          setTimeout(() => this.clearMessage(res), this.timeout);
+        };
+  
+      }, erro => console.log(erro))
   };
   
   clearMessage(message) {

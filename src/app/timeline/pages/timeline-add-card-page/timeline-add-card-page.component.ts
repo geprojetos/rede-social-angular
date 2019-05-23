@@ -5,6 +5,7 @@ import { TimelineCardService } from '../../services/timeline-card/timeline-card.
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/core/user/service/user.service';
 import { HttpEvent, HttpEventType } from '@angular/common/http';
+import { MessageService } from 'src/app/shared/components/message/services/message.service';
 
 @Component({
   selector: 'app-timeline-add-card-page',
@@ -22,7 +23,8 @@ export class TimelineAddCardPageComponent implements OnInit {
     private _fb: FormBuilder,
     private _timelineService: TimelineCardService,
     private _router: Router,
-    private _userService: UserService
+    private _userService: UserService,
+    private _messageService: MessageService
   ) { }
 
   ngOnInit(): void {
@@ -38,14 +40,12 @@ export class TimelineAddCardPageComponent implements OnInit {
       ],
       inputCheck: [true]
     })
-  }
+  };
 
   addCard(e: Event): void {
 
     e.preventDefault();
 
-    console.log('Cadastrar');
-    
     let inputCheck  = this.formAddCards.get('inputCheck').value
     let textareaDescription = this.formAddCards.get('textareaDescription').value;
 
@@ -62,9 +62,13 @@ export class TimelineAddCardPageComponent implements OnInit {
 
           const userName = this._userService.userNameGet();
           
+          this._messageService.success('Card Cadastrado com sucesso');
           this._router.navigate([userName, 'timeline']);
         }
-      }, erro => console.log(erro))
+      }, erro => {
+        console.log(erro);
+        this._messageService.warning('Não foi possível cadastrar o card, tente novamente');
+      })
   };
 
   handleFile(file: File): void {
@@ -82,6 +86,6 @@ export class TimelineAddCardPageComponent implements OnInit {
 
     this.preview = '';
     this.formAddCards.reset();
-  }
+  };
 
-}
+};
