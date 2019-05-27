@@ -12,7 +12,7 @@ import { MessageModule } from 'src/app/shared/components/message/message.module'
     CommonModule,
     RouterModule,
     CoreModule,
-    MessageModule
+    MessageModule,
   ],
   declarations: [
     TimelineMenuComponent

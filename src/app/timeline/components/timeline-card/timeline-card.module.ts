@@ -13,6 +13,7 @@ import { TimelineSearchPipe } from '../../pipes/timeline-search/timeline-search.
 import { TimelineCardNotfoundModule } from '../timeline-card-notfound/timeline-card-notfound.module';
 import { TimelineIconRemoveModule } from '../timeline-icon-remove/timeline-icon-remove.module';
 import { OwnerDirective } from 'src/app/shared/directives/owner/owner.directive';
+import { ModalsModule } from 'src/app/shared/components/modals/modals.module';
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import { OwnerDirective } from 'src/app/shared/directives/owner/owner.directive'
     TimelineSearchModule,
     ButtonLoadCardModule,
     TimelineCardNotfoundModule,
-    TimelineIconRemoveModule
+    TimelineIconRemoveModule,
+    ModalsModule
   ],
   declarations: [
     TimelineCardComponent,
