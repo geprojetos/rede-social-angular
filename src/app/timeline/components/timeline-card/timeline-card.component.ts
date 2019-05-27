@@ -6,6 +6,7 @@ import { TimelineCardService } from '../../services/timeline-card/timeline-card.
 import { UserService } from 'src/app/core/user/service/user.service';
 import { loginInterface } from 'src/app/login/interfaces/login-interface';
 import { MessageService } from 'src/app/shared/components/message/services/message.service';
+import { ModalConfirmService } from 'src/app/shared/components/modals/modal-confirm/services/modal-confirm.service';
 
 @Component({
   selector: 'app-timeline-card',
@@ -17,12 +18,14 @@ export class TimelineCardComponent implements OnInit {
   cards: TimelineCardInterface[] = [];
   filter: string;
   user: loginInterface;
+  confirm: boolean = false;
 
   constructor(
     private _activatedRoute: ActivatedRoute,
     private _timelineService: TimelineCardService,
     private _userService: UserService,
-    private _messageService: MessageService
+    private _messageService: MessageService,
+    private _modalConfirmService: ModalConfirmService
   ) { }
 
   ngOnInit(): void {
@@ -39,22 +42,23 @@ export class TimelineCardComponent implements OnInit {
 
   removeCard(id: number): void {
 
-    this._timelineService
-      .remove(id)
-      .subscribe(() => {
+    this._modalConfirmService.toogleModal();
+    // this._timelineService
+    //   .remove(id)
+    //   .subscribe(() => {
         
-        this.cards.forEach((card, i) => {
+    //     this.cards.forEach((card, i) => {
 
-          if(card.id === id) {
-            this.cards.splice(i, 1);
-          }      
-        })
+    //       if(card.id === id) {
+    //         this.cards.splice(i, 1);
+    //       }      
+    //     })
 
-        this._messageService.info('Card removido');
-        console.log(this.cards);
-      }, erro => {
-        console.log(erro);
-        this._messageService.warning('Não foi possível remover o card, tente novamente');
-      });
+    //     this._messageService.info('Card removido');
+    //     console.log(this.cards);
+    //   }, erro => {
+    //     console.log(erro);
+    //     this._messageService.warning('Não foi possível remover o card, tente novamente');
+    //   });
   };
 };
