@@ -14,9 +14,12 @@ export class ModalConfirmService {
     this.modalConfirmSubject.next(this.modal);
   };
 
+  confirm(): void {
+    this.modalConfirmSubject.next(this.modal);
+    // return this.modal;
+  };
+
   modalConfirmObservable(): Observable<boolean> {
-    console.log(this.modalConfirmSubject);
-    
     return this.modalConfirmSubject.asObservable();
   };
 };

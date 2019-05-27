@@ -7,18 +7,18 @@
   }">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <header class="modal-header">
-        <h5 class="modal-title">Título do modal</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar" (click)="toogleModal()">
+      <header class="modal-header bg-light text-center">
+        <h5 class="modal-title">{{ title }}</h5>
+        <button type="button" class="close" aria-label="Fechar" (click)="toogleModal()">
           <span aria-hidden="true">&times;</span>
         </button>
       </header>
       <div class="modal-body">
-        <p>Texto do corpo do modal, é aqui.</p>
+        <p>{{ description }}</p>
       </div>
       <footer class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="toogleModal()">Fechar</button>
-        <button type="button" class="btn btn-primary">Salvar mudanças</button>
+        <button type="button" class="btn btn-success" (click)="confirm()">Confirmar</button>
+        <button type="button" class="btn btn-danger" (click)="toogleModal()">Cancelar</button>
       </footer>
     </div>
   </div>

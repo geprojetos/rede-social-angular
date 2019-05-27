@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Observable } from 'rxjs';
 
 import { ModalConfirmService } from './services/modal-confirm.service';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-modal-confirm',
@@ -10,8 +10,12 @@ import { Observable } from 'rxjs';
 })
 export class ModalConfirmComponent implements OnInit {
 
+  @Input() title: string = '';
+  @Input() description: string = '';
+  @Output() confirmed = new EventEmitter<any>();
+
   modal$: Observable<boolean>;
-  modal: boolean = false;
+  modal: boolean;
 
   constructor(
     private _modalConfirmService: ModalConfirmService
@@ -20,14 +24,17 @@ export class ModalConfirmComponent implements OnInit {
   ngOnInit() { 
 
     this.modal$ = this._modalConfirmService.modalConfirmObservable();
-    this.modal$.subscribe(res => {
-      console.log(res);
-      this.modal = res;  
-    });
+    this.modal$.subscribe(res => this.modal = res);
   };
 
   toogleModal(): void {
     this._modalConfirmService.toogleModal();
   };
+  
+  confirm() {
 
+    this._modalConfirmService.confirm();
+    this.confirmed.emit(this.modal);
+    this._modalConfirmService.toogleModal();
+  };
 }

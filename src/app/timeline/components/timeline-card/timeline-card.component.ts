@@ -19,6 +19,7 @@ export class TimelineCardComponent implements OnInit {
   filter: string;
   user: loginInterface;
   confirm: boolean = false;
+  idCard: number;
 
   constructor(
     private _activatedRoute: ActivatedRoute,
@@ -40,25 +41,32 @@ export class TimelineCardComponent implements OnInit {
     this.cards = newCards;
   };
 
-  removeCard(id: number): void {
-
-    this._modalConfirmService.toogleModal();
-    // this._timelineService
-    //   .remove(id)
-    //   .subscribe(() => {
+  confirmed(e) {
+    
+    if(!e) return;
+    
+    this._timelineService
+      .remove(this.idCard)
+      .subscribe(() => {
         
-    //     this.cards.forEach((card, i) => {
+        this.cards.forEach((card, i) => {
 
-    //       if(card.id === id) {
-    //         this.cards.splice(i, 1);
-    //       }      
-    //     })
+          if(card.id === this.idCard) {
+            this.cards.splice(i, 1);
+          }      
+        })
 
-    //     this._messageService.info('Card removido');
-    //     console.log(this.cards);
-    //   }, erro => {
-    //     console.log(erro);
-    //     this._messageService.warning('Não foi possível remover o card, tente novamente');
-    //   });
+        this._messageService.info('Card removido');
+        console.log(this.cards);
+      }, erro => {
+        console.log(erro);
+        this._messageService.warning('Não foi possível remover o card, tente novamente');
+      });
+  };
+  
+  removeCard(id: number): void {
+    
+    this._modalConfirmService.toogleModal();
+    this.idCard = id;
   };
 };

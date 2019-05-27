@@ -1,5 +1,3 @@
-<app-modal-confirm></app-modal-confirm>
-
 <app-timeline-search (sendFilter)="filter = $event"></app-timeline-search>
 
 <app-timeline-card-notfound
@@ -20,7 +18,14 @@
         [user]="user"
         (removeCard)="removeCard(card.id)">
     </app-icon-remove>
+
+    <app-modal-confirm 
+        (confirmed)="confirmed($event)"
+        title="Deseja remover este card?"
+        description="Após remover o card ele não poderá ser recuperado, deseja continuar?">
+    </app-modal-confirm>
 </app-card-template>
+
 
 <app-button-load-card 
     [cards]="cards" 
