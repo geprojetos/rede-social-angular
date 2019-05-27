@@ -1,7 +1,7 @@
 <app-message></app-message>
-<nav class="position-fixed fixed-bottom col-12 bg-dark page-width rounded-top">
+<nav class="position-fixed fixed-bottom bg-dark page-width rounded-top">
   <ul 
-    class="nav d-flex justify-content-between align-items-center"
+    class="nav d-flex justify-content-around align-items-center"
     *ngIf="logged">
     <li class="nav-item">
       <a 
@@ -18,7 +18,7 @@
         class="d-block text-white text-center pl-3 pr-3 pt-1" 
         (click)="openSearch($event)">
         <i class="fa fa-search fa-2x d-block" aria-hidden="true"></i>
-        <small>pesquisar</small>
+        <small>busca</small>
       </a>
     </li>
 
@@ -29,7 +29,7 @@
         [routerLinkActive]="['bg-success']"
         [routerLinkActiveOptions]="{exact:true}">
         <i class="fa fa-plus-square fa-2x d-block" aria-hidden="true"></i>
-        <small>adicionar</small>
+        <small>cadastro</small>
       </a>
     </li>
     <li class="nav-item">
@@ -39,7 +39,7 @@
         [routerLinkActive]="['bg-info']"
         [routerLinkActiveOptions]="{exact:true}">
         <i class="fa fa-user fa-2x d-block" aria-hidden="true"></i>
-        <small>configurações</small>
+        <small>conta</small>
       </a>
     </li>
   </ul>
