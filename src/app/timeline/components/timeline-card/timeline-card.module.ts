@@ -14,6 +14,7 @@ import { TimelineCardNotfoundModule } from '../timeline-card-notfound/timeline-c
 import { TimelineIconRemoveModule } from '../timeline-icon-remove/timeline-icon-remove.module';
 import { OwnerDirective } from 'src/app/shared/directives/owner/owner.directive';
 import { ModalsModule } from 'src/app/shared/components/modals/modals.module';
+import { TimelineLikeModule } from '../timeline-like/timeline-like.module';
 
 @NgModule({
   imports: [
@@ -24,7 +25,8 @@ import { ModalsModule } from 'src/app/shared/components/modals/modals.module';
     ButtonLoadCardModule,
     TimelineCardNotfoundModule,
     TimelineIconRemoveModule,
-    ModalsModule
+    ModalsModule,
+    TimelineLikeModule
   ],
   declarations: [
     TimelineCardComponent,
