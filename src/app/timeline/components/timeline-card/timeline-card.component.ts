@@ -69,4 +69,9 @@ export class TimelineCardComponent implements OnInit {
     this._modalConfirmService.toogleModal();
     this.idCard = id;
   };
+
+  enjoying(e): void {
+
+    console.log(e);
+  };
 };

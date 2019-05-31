@@ -12,7 +12,7 @@
     [url]="card.url"
     [description]="card.description">
 
-    <app-timeline-like></app-timeline-like>
+    <app-timeline-like (click)="enjoying(card)"></app-timeline-like>
 
     <app-icon-remove 
         appOwnerDirective
