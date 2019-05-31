@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-timeline-like',
@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TimelineLikeComponent implements OnInit {
 
+  @Input() likes: number = 0;
+  
   constructor() { }
 
   ngOnInit() {
