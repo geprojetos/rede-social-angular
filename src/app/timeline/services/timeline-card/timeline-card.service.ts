@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpEvent } from '@angular/common/http';
 
 import { environment } from '../../../../environments/environment';
-import { Observable } from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
 import { TimelineCardInterface } from '../../interfaces/timeline-card/timeline-card-interface';
+import { map, catchError } from 'rxjs/operators';
 
 const api = environment.development;
 
@@ -31,7 +32,7 @@ export class TimelineCardService {
           )
   };
 
-  upload(file: File, description: string, allowComments: boolean) {
+  upload(file: File, description: string, allowComments: boolean): Observable<HttpEvent<Object>> {
 
     let formData = new FormData();
 
@@ -50,9 +51,20 @@ export class TimelineCardService {
       )
   };
 
-  remove(id: number) {
+  remove(id: number): Observable<Object> {
 
     return this._http
       .delete(`${ api }/photos/${ id }`);
-  }
+  };
+
+  like(id: number) {
+    return this._http
+      .post(`
+          ${ api }/photos/${ id }/like`
+          ,{}
+          ,{ observe: 'response' }
+      )
+      .pipe(map(res => true))
+      .pipe(catchError(error => error.status == '304' ? of(false) : throwError(error)));
+  };
 }
