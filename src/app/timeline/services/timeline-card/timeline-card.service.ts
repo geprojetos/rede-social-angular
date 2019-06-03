@@ -32,6 +32,12 @@ export class TimelineCardService {
           )
   };
 
+  listCardsById(id: number): Observable<TimelineCardInterface> {
+
+    return this._http.
+      get<TimelineCardInterface>(`${ api }/photos/${ id }`)
+  };
+
   upload(file: File, description: string, allowComments: boolean): Observable<HttpEvent<Object>> {
 
     let formData = new FormData();

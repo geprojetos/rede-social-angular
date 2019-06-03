@@ -20,6 +20,7 @@ export class TimelineCardComponent implements OnInit {
   user: loginInterface;
   confirm: boolean = false;
   idCard: number;
+  cardLikes: TimelineCardInterface;
 
   constructor(
     private _activatedRoute: ActivatedRoute,
@@ -70,8 +71,27 @@ export class TimelineCardComponent implements OnInit {
     this.idCard = id;
   };
 
-  enjoying(e): void {
+  enjoying(card: TimelineCardInterface): void {
 
-    console.log(e);
+    console.log(card);
+    
+    this._timelineService
+      .like(card.id)
+      .subscribe(res => {
+
+        if(!res) {
+          console.log('Card já curtido pode você');
+          return;
+        }
+
+        this._timelineService
+          .listCardsById(card.id)
+          .subscribe(res => 
+            card.likes = res.likes, 
+            erro => console.log(erro)
+          );
+      }, erro => {
+        console.log(erro);
+      });
   };
 };
