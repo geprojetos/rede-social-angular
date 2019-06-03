@@ -8,6 +8,7 @@ import { Component, Input } from '@angular/core';
 export class TimelineLikeComponent {
 
   @Input() likes: number = 0;
+  @Input() icon: string = 'fa-heart-o';
 
   constructor() { }
 }

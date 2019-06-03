@@ -63,7 +63,7 @@ export class TimelineCardService {
       .delete(`${ api }/photos/${ id }`);
   };
 
-  like(id: number) {
+  like(id: number): Observable<boolean> {
     return this._http
       .post(`
           ${ api }/photos/${ id }/like`

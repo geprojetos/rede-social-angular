@@ -21,6 +21,7 @@ export class TimelineCardComponent implements OnInit {
   confirm: boolean = false;
   idCard: number;
   cardLikes: TimelineCardInterface;
+  icon: string = 'fa-heart-o';
 
   constructor(
     private _activatedRoute: ActivatedRoute,
@@ -71,10 +72,8 @@ export class TimelineCardComponent implements OnInit {
     this.idCard = id;
   };
 
-  enjoying(card: TimelineCardInterface): void {
+  logicLike(card: TimelineCardInterface): void {
 
-    console.log(card);
-    
     this._timelineService
       .like(card.id)
       .subscribe(res => {
@@ -86,12 +85,17 @@ export class TimelineCardComponent implements OnInit {
 
         this._timelineService
           .listCardsById(card.id)
-          .subscribe(res => 
-            card.likes = res.likes, 
-            erro => console.log(erro)
-          );
+          .subscribe(res => {
+            
+            card.likes = res.likes
+          }, erro => console.log(erro));
       }, erro => {
         console.log(erro);
       });
+  };
+
+  enjoying(card: TimelineCardInterface): void {
+
+    this.logicLike(card);
   };
 };
