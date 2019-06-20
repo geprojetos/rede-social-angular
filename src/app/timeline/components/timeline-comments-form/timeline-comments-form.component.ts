@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-timeline-comments-form',
@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TimelineCommentsFormComponent implements OnInit {
 
+  @Input() userName: string;
+  @Input() comments: string;
+  
   constructor() { }
 
   ngOnInit() {

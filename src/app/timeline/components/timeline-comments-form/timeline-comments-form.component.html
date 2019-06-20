@@ -1,5 +1,14 @@
+<ul class="list-unstyled mb-2" *ngIf="comments">
+  <li class="mt-1 mb-1 p-2 bg-light" *ngFor="let comment of comments">
+    <a [routerLink]="['/', userName, 'timeline']">
+      {{ userName }}
+    </a>
+    {{ comment }}
+  </li>
+</ul>
+  
 <form action="">
-  <div class="form-group">
+  <div class="mb-2">
       <div class="input-group">
         <div class="input-group-prepend">
           <i class="bg-transparent border-right-0 fa fa-paper-plane-o input-group-text" aria-hidden="true" title="Enviar comentário"></i>
@@ -15,7 +24,7 @@
 
       <small 
         id="userComments" 
-        class="form-text alert alert-danger form-text mt-0">
+        class="form-text alert alert-danger form-text mt-0 mb-0">
           Comentário obrigatório
       </small>
     </div>
