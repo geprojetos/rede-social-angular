@@ -98,4 +98,8 @@ export class TimelineCardComponent implements OnInit {
 
     this.logicLike(card);
   };
+
+  postComment(e) {
+    console.log(e);
+  }
 };

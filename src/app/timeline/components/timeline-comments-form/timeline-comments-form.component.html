@@ -7,25 +7,31 @@
   </li>
 </ul>
   
-<form action="">
+<form [formGroup]="formComments" (submit)="sendComments($event)" #form="ngForm">
   <div class="mb-2">
       <div class="input-group">
         <div class="input-group-prepend">
-          <i class="bg-transparent border-right-0 fa fa-paper-plane-o input-group-text" aria-hidden="true" title="Enviar comentário"></i>
+          <button type="submit" class="bg-transparent border-right-0 fa fa-paper-plane-o input-group-text" aria-hidden="true" title="Enviar comentário"></button>
         </div>
 
         <input 
           type="text" 
           class="border-left-0 form-control" 
           id="comments" 
-          aria-describedby="userComments" 
-          placeholder="Deixe o seu comentário aqui...">
+          placeholder="Deixe o seu comentário aqui..."
+          formControlName="comments">
       </div>
 
       <small 
-        id="userComments" 
-        class="form-text alert alert-danger form-text mt-0 mb-0">
+        class="form-text alert alert-danger form-text mt-0 mb-0"
+        *ngIf="formComments.get('comments').errors?.required && (form.submitted)">
           Comentário obrigatório
+      </small>
+
+      <small 
+        class="form-text alert alert-danger form-text mt-0 mb-0"
+        *ngIf="formComments.get('comments').errors?.maxlength">
+          O comentário não pode conter mais de 255 caracteres
       </small>
     </div>
 </form>
