@@ -5,6 +5,7 @@ import { environment } from '../../../../environments/environment';
 import { Observable, of, throwError } from 'rxjs';
 import { TimelineCardInterface } from '../../interfaces/timeline-card/timeline-card-interface';
 import { map, catchError } from 'rxjs/operators';
+import { CommentsInterface } from '../../interfaces/timeline-comments/timeline-comments-interface';
 
 const api = environment.development;
 
@@ -74,8 +75,13 @@ export class TimelineCardService {
       .pipe(catchError(error => error.status == '304' ? of(false) : throwError(error)));
   };
 
-  comments(id: number, commentText: string): Observable<Object> {
+  postComments(id: number, commentText: string): Observable<CommentsInterface[]> {
 
-    return this._http.post(`${ api }/photos/${ id }/comments`, { commentText })
+    return this._http.post<CommentsInterface[]>(`${ api }/photos/${ id }/comments`, { commentText })
+  };
+
+  getComments(id: number): Observable<CommentsInterface[]> {
+
+    return this._http.get<CommentsInterface[]>(`${ api }/photos/${ id }/comments`)
   }
 }
