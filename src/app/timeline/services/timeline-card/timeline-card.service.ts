@@ -73,4 +73,9 @@ export class TimelineCardService {
       .pipe(map(res => true))
       .pipe(catchError(error => error.status == '304' ? of(false) : throwError(error)));
   };
+
+  comments(id: number, commentText: string): Observable<Object> {
+
+    return this._http.post(`${ api }/photos/${ id }/comments`, { commentText })
+  }
 }
