@@ -75,13 +75,13 @@ export class TimelineCardService {
       .pipe(catchError(error => error.status == '304' ? of(false) : throwError(error)));
   };
 
-  postComments(id: number, commentText: string): Observable<CommentsInterface[]> {
+  postComments(id: number, commentText: string): Observable<CommentsInterface> {
 
-    return this._http.post<CommentsInterface[]>(`${ api }/photos/${ id }/comments`, { commentText })
+    return this._http.post<CommentsInterface>(`${ api }/photos/${ id }/comments`, { commentText })
   };
 
-  getComments(id: number): Observable<CommentsInterface[]> {
+  getComments(id: number): Observable<CommentsInterface> {
 
-    return this._http.get<CommentsInterface[]>(`${ api }/photos/${ id }/comments`)
+    return this._http.get<CommentsInterface>(`${ api }/photos/${ id }/comments`)
   }
 }

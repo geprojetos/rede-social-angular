@@ -1,9 +1,9 @@
 <ul class="list-unstyled mb-2" *ngIf="comments">
   <li class="mt-1 mb-1 p-2 bg-light" *ngFor="let comment of comments">
     <a [routerLink]="['/', userName, 'timeline']">
-      {{ userName }}
+      {{ comment.userName }}
     </a>
-    {{ comment }}
+    {{ comment.text }}
   </li>
 </ul>
   

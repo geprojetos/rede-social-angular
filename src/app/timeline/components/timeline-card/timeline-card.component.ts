@@ -99,7 +99,15 @@ export class TimelineCardComponent implements OnInit {
     this.logicLike(card);
   };
 
-  postComment(e) {
-    console.log(e);
-  }
+  postComment(id: number, comment) {
+    console.log(comment);
+    console.log(id);
+
+    this._timelineService
+      .postComments(id, comment.comments)
+      .subscribe(() => {
+
+        console.log('Comentário realizado com sucesso');
+      }, erro => console.log(erro))
+  };
 };

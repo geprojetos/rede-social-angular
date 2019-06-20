@@ -27,8 +27,11 @@
             (removeCard)="removeCard(card.id)">
         </app-icon-remove>
     </div>
-
-    <app-timeline-comments-form (yourComment)="postComment($event)"></app-timeline-comments-form>
+    
+    <app-timeline-comments-form
+        (yourComment)="postComment(card.id, $event)"
+        [id]="card.id">
+    </app-timeline-comments-form>
 
     <app-modal-confirm 
         (confirmed)="confirmed($event)"
